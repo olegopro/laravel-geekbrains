@@ -20,3 +20,10 @@ Route::get('/', function () {
 Route::get('/name/{name}', function (string $name): string {
     return "Hello, {$name}";
 });
+
+Route::any('/post/{var}', function (string $variable): string {
+    return "post var: ${variable}";
+});
+
+
+Route::view('/post/{var}', 'welcome');
