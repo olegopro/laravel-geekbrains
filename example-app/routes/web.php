@@ -25,5 +25,4 @@ Route::any('/post/{var}', function (string $variable): string {
     return "post var: ${variable}";
 });
 
-
-Route::view('/post/{var}', 'welcome');
+Route::view('/demo/', 'demo');
