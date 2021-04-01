@@ -1,6 +1,8 @@
 @extends('layout')
 
-@section('title') Страница про нас @endsection
+@section('title')
+    Страница про нас
+@endsection
 
 @section('main_content')
     <!-- Main jumbotron for a primary marketing message or call to action -->

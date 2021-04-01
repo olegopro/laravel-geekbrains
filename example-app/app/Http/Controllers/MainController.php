@@ -37,6 +37,7 @@ class MainController extends Controller
         ]);
 
         $review = new Contact();
+        
         $review->email = $request->input('email');
         $review->subject = $request->input('subject');
         $review->message = $request->input('message');
