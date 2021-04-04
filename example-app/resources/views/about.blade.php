@@ -1,10 +1,10 @@
-@extends('layout')
+@extends( 'layouts.home' )
 
-@section('title')
+@section( 'title' )
     Страница про нас
 @endsection
 
-@section('main_content')
+@section( 'main-content' )
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron bg-warning">
         <div class="container">

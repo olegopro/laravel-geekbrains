@@ -9,7 +9,9 @@ class MainController extends Controller
 {
     public function home()
     {
-        return view('home');
+        return view('home', [
+            'newsList' => $this->newsList,
+        ]);
     }
 
     public function about()
@@ -37,7 +39,7 @@ class MainController extends Controller
         ]);
 
         $review = new Contact();
-        
+
         $review->email = $request->input('email');
         $review->subject = $request->input('subject');
         $review->message = $request->input('message');
