@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
     <title>Панель администратора</title>
 
     <!-- Custom fonts for this template-->
@@ -26,7 +25,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <x-admin-sidebar></x-admin-sidebar>
+        <x-admin-sidebar/>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -36,7 +35,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <x-admin-topbar></x-admin-topbar>
+                <x-admin-topbar/>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
