@@ -9,19 +9,27 @@ class NewsController extends Controller
 {
     public function index()
     {
-        return view('layouts.admin', [
+        return view('admin.news.index', [
             'newsList' => $this->newsList
         ]);
     }
 
     public function create()
     {
-        return 'Создать новость';
+        return view('admin.news.create', [
+            'newsList' => $this->newsList
+        ]);
     }
 
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'newsName' => ['required']
+        ]);
+        $title = $request->input('newsName');
+        //dd($title);
+
+
     }
 
     public function show($id)

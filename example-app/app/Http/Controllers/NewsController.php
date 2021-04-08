@@ -8,13 +8,13 @@ class NewsController extends Controller
 {
     public function index()
     {
-        return view('news', [
+        return view('global.news', [
             'newsList' => $this->newsList,
         ]);
     }
 
     public function show(int $id)
     {
-        return view('news.show', ['news' => $id]);
+        return view('global.show', ['news' => $id]);
     }
 }

@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('admin.index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Панель управления</span></a>
     </li>
@@ -77,8 +77,24 @@
         <div id="collapseNews" class="collapse" aria-labelledby="headingNews" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 {{--<h6 class="collapse-header">Компоненты:</h6>--}}
-                <a class="collapse-item" href="buttons.html">Создать новость</a>
-                <a class="collapse-item" href="cards.html">Все новости</a>
+                <a class="collapse-item" href="{{ route('admin.news.create') }}">Создать новость</a>
+                <a class="collapse-item" href="{{ route('admin.news.index') }}">Все новости</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategory"
+           aria-expanded="true" aria-controls="collapseCategory">
+            <i class="fas fa-fw fa-list"></i>
+            <span>Категории</span>
+        </a>
+        <div id="collapseCategory" class="collapse" aria-labelledby="headingCategory" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{--<h6 class="collapse-header">Компоненты:</h6>--}}
+                <a class="collapse-item" href="buttons.html">Создать категорию</a>
+                <a class="collapse-item" href="{{ route('admin.categories.index') }}">Все категории</a>
             </div>
         </div>
     </li>
@@ -140,7 +156,7 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ route('admin.tables.index') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Таблицы</span></a>
     </li>

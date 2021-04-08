@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\TablesController as AdminTablesController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
@@ -17,8 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MainController::class, 'home']);
-Route::get('/about', [MainController::class, 'about']);
+Route::get('/', [MainController::class, 'home'])
+     ->name('home');
+Route::get('/about', [MainController::class, 'about'])
+     ->name('about');
 Route::get('/review', [MainController::class, 'review'])
      ->name('review');
 Route::post('/review/check', [MainController::class, 'reviewCheck']);
@@ -27,12 +31,16 @@ Route::post('/review/check', [MainController::class, 'reviewCheck']);
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('/categories', AdminCategoryController::class);
     Route::resource('/news', AdminNewsController::class);
+    Route::resource('/tables', AdminTablesController::class);
+    Route::resource('/', AdminDashboardController::class);
 });
+
+Route::get('/news/create', [AdminNewsController::class, 'create']);
 
 Route::get('/news', [NewsController::class, 'index'])
      ->name('news');
 
-Route::get('/news/base/show/{id}', [NewsController::class, 'show'])
+Route::get('/news/show/{id}', [NewsController::class, 'show'])
      ->where('id', '\d+')
      ->name('news.show');
 

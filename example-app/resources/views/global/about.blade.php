@@ -1,11 +1,9 @@
 @extends( 'layouts.home' )
 
-@section( 'title' )
-    Страница про нас
-@endsection
+@section( 'title', 'Новости' )
 
 @section( 'main-content' )
     <main role="main">
-        <x-home-jumbotron/>
+        <x-home-jumbotron text="О нас"/>
     </main>
 @endsection

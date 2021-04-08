@@ -9,21 +9,22 @@ class MainController extends Controller
 {
     public function home()
     {
-        return view('home', [
+        return view('global.home', [
             'newsList' => $this->newsList,
+            'title' => 'Главная страница'
         ]);
     }
 
     public function about()
     {
-        return view('about');
+        return view('global.about');
     }
 
     public function review()
     {
         $reviews = new Contact();
 
-        return view('review', ['reviews' => $reviews->all()]);
+        return view('global.review', ['reviews' => $reviews->all()]);
 
         //dd($reviews->all());
         //return view('review');
@@ -46,6 +47,6 @@ class MainController extends Controller
 
         $review->save();
 
-        return redirect()->route(' review');
+        return redirect()->route('global.review');
     }
 }

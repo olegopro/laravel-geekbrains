@@ -1,4 +1,6 @@
-@extends( 'home' )
+@extends( 'global.home' )
+
+@section( 'title', 'Новости' )
 
 @section('container-news')
     <div class="container">
@@ -15,6 +17,5 @@
             @endforelse
         </div>
     </div> <!-- /container -->
-
 @endsection
 
