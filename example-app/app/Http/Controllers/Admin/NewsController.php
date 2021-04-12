@@ -3,21 +3,26 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
     public function index()
     {
+        $objNews = new News();
+        $news = $objNews->getNews(TRUE);
+
         return view('admin.news.index', [
-            'newsList' => $this->newsList
+            'news' => $news,
+            'count' => $objNews->getCount()
         ]);
     }
 
     public function create()
     {
         return view('admin.news.create', [
-            'newsList' => $this->newsList
+            //'newsList' => $this->newsList
         ]);
     }
 
@@ -26,10 +31,15 @@ class NewsController extends Controller
         $request->validate([
             'newsName' => ['required']
         ]);
-        $title = $request->input('newsName');
-        //dd($title);
 
+        $objNews = new News();
 
+        $objNews->title = $request->input('newsName');
+        $objNews->text = $request->input('newsText');
+        $objNews->category_id = $request->input('category_id');
+        $objNews->slug = $request->input('newsName');
+
+        $objNews->save();
     }
 
     public function show($id)
@@ -39,7 +49,7 @@ class NewsController extends Controller
 
     public function edit($id)
     {
-        return 'Редатировать новость';
+        return 'Редактировать новость';
     }
 
     public function update(Request $request, $id)

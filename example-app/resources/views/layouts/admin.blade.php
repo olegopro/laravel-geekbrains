@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<x-admin-header/>
+<x-admin-header />
 
 <body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <x-admin-sidebar/>
+        <x-admin-sidebar />
+
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -16,7 +17,7 @@
             <!-- Main Content -->
             <div id="content">
 
-                <x-admin-topbar/>
+                <x-admin-topbar />
                 @yield( 'content' )
 
             </div>
@@ -36,8 +37,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -55,7 +55,8 @@
         </div>
     </div>
 
-    <x-admin-footer-scripts/>
+    <x-admin-footer-scripts />
 
 </body>
+
 </html>

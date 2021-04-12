@@ -3,7 +3,11 @@
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-white" href="{{ route('home') }}">Главная</a>
         <a class="p-2 text-white" href="{{ route('news') }}">Новости</a>
+        <a class="p-2 text-white" href="{{ route('review') }}">Отзывы</a>
         <a class="p-2 text-white" href="{{ route('about') }}">О нас</a>
     </nav>
-    <a class="btn btn-warning" href="/review">Отзывы</a>
+    <nav class="my-2 my-md-0 mr-md-3">
+
+        <a class="btn btn-success" href="/admin">Вход</a>
+    </nav>
 </div>

@@ -1,16 +1,14 @@
 @extends('layouts.home')
 
-@section('title')
-    Отзывы
-@endsection
+@section('title', 'Отзывы')
+
 
 @section('main-content')
     <h1>Форма добавления отзыва</h1>
-    @if($errors->any())
-
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
-                @foreach($errors->all() as $error)
+                @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
@@ -24,7 +22,7 @@
         <button type="submit" class="btn btn-success">Отправить</button>
 
         <h1>Все отзывы</h1>
-        @foreach($reviews as $element)
+        @foreach ($reviews as $element)
             <div class="alert-warning alert">
                 <h3>{{ $element->subject }}</h3>
                 <b>{{ $element->email }}</b>

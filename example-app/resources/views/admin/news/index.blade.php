@@ -5,7 +5,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Список новостей</h1>
+            <h1 class="h3 mb-0 text-gray-800">Список новостей (Всего: {{ $count }} новостей)</h1>
             <a href="{{ route('admin.news.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Добавить новость</a>
         </div>
 
@@ -27,12 +27,16 @@
                         </thead>
 
                         <tbody>
-                        @foreach ( $newsList as $key => $news )
+                        @foreach ( $news as $newsItem )
                             <tr>
-                                <td>{{ ++$key }}</td>
-                                <td>{{ $news[0] }}</td>
-                                <td>{{ now() }}</td>
-                                <td><a href="">Ред.</a><a href="">Уд.</a></td>
+                                <td>{{ $newsItem->id }}</td>
+                                <td>{{ $newsItem->title }}</td>
+                                <td>{{ $newsItem->created_at }}</td>
+                                <td>
+                                    <a href=""><i class="fas fa-pencil-alt"></i></a>
+                                    &nbsp;
+                                    <a href=""><i class="far fa-trash-alt"></i></a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

@@ -1,6 +1,7 @@
 @extends( 'layouts.home' )
 
 @section( 'container-news' )
-    <h2>Отобразить запись с ID = {{ $news }} </h2>
+    <h2>{{ $news->title }} </h2>
+    <p>{!! $news->text !!}</p>
 @endsection
 
