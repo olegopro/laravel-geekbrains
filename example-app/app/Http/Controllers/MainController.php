@@ -10,10 +10,10 @@ class MainController extends Controller
 {
     public function home()
     {
-        $news = (new News())->getNews();
+        $news = News::get();
 
         return view('global.home', [
-            'news'  => $news,
+            'news' => $news,
             'title' => 'Главная страница',
         ]);
     }
@@ -37,14 +37,14 @@ class MainController extends Controller
     {
         //dd($request);
         $valid = $request->validate([
-            'email'   => 'required|min:4|max:30',
+            'email' => 'required|min:4|max:30',
             'subject' => 'required|min:4|max:120',
             'message' => 'required|min:15|max:300',
         ]);
 
         $review = new Contact();
 
-        $review->email   = $request->input('email');
+        $review->email = $request->input('email');
         $review->subject = $request->input('subject');
         $review->message = $request->input('message');
 

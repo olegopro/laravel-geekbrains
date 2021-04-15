@@ -9,13 +9,13 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     public function index()
+
     {
-        $objNews = new News();
-        $news = $objNews->getNews(TRUE);
+        $news = News::select(['id', 'title', 'text', 'created_at'])->get();
 
         return view('admin.news.index', [
             'news' => $news,
-            'count' => $objNews->getCount()
+            'count' => News::count()
         ]);
     }
 

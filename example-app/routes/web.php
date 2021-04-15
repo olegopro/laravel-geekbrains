@@ -20,11 +20,11 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', [MainController::class, 'home'])
-    ->name('home');
+     ->name('home');
 Route::get('/about', [MainController::class, 'about'])
-    ->name('about');
+     ->name('about');
 Route::get('/review', [MainController::class, 'review'])
-    ->name('review');
+     ->name('review');
 Route::post('/review/check', [MainController::class, 'reviewCheck']);
 
 //ADMIN ROUTE
@@ -38,12 +38,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 Route::get('/news/create', [AdminNewsController::class, 'create']);
 
 Route::get('/news', [NewsController::class, 'index'])
-    ->name('news');
+     ->name('news');
 
 Route::get('/news/show/{id}', [NewsController::class, 'show'])
-    ->where('id', '\d+')
-    ->name('news.show');
+     ->where('id', '\d+')
+     ->name('news.show');
 
-Route::get('/testdb', function () {
-    dd(DB::table('contacts'));
+Route::get('/collections', function () {
+    $collect = collect([
+        'string',
+        'age'
+    ]);
+    $collect = $collect->map(fn($iterate) => Str::upper($iterate));
+    dd($collect);
 });

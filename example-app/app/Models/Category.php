@@ -4,21 +4,22 @@ namespace App\Models;
 
 use DB;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
     protected $table = 'categories';
 
-    public function getCategories()
-    {
-        return DB::table($this->table)
-            ->select(['id', 'title', 'created_at'])
-            ->get();
-        //return DB::select("SELECT id, title, created_at FROM categories");
-    }
+    protected  $fillable = [
+      'title', 'description', 'is_visible'
+    ];
 
-    public function getCategoryById(int $id)
+    protected $casts = [
+        'is_visible' => 'boolean'
+    ];
+
+    public function news(): HasMany
     {
-        return DB::selectOne("SELECT id, title, description FROM categories WHERE id = :id", ['id' => $id]);
+        return $this->hasMany(News::class, 'category_id', 'id');
     }
 }

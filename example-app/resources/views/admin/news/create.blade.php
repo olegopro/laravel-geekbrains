@@ -7,7 +7,7 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Добавление новости</h1>
         </div>
-        @if ($errors->any())
+        @if ( $errors->any() )
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger">{{ $error }}</div>
             @endforeach
@@ -38,9 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label for="newsText">Текст новости</label>
-                        <textarea type="text" class="form-control" id="newsText" rows="12" name="newsText">
-                            {{ old('newsText') }}
-                        </textarea>
+                        <textarea type="text" class="form-control" id="newsText" rows="12" name="newsText">{{ old('newsText') }}</textarea>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="publishCheck">

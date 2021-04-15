@@ -33,9 +33,15 @@
                                 <td>{{ $newsItem->title }}</td>
                                 <td>{{ $newsItem->created_at }}</td>
                                 <td>
-                                    <a href=""><i class="fas fa-pencil-alt"></i></a>
-                                    &nbsp;
-                                    <a href=""><i class="far fa-trash-alt"></i></a>
+
+                                    <button class="btn btn-success">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </button>
+
+                                    <button class="btn btn-danger">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+
                                 </td>
                             </tr>
                         @endforeach
