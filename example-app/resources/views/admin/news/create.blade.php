@@ -27,6 +27,7 @@
                         <div class="col-4 ">
                             <div class="form-group">
                                 <label for="category">Категории</label>
+                                {{ $category_id = 1 }}
                                 <select class="custom-select" id="category" name="category_id">
                                     <option selected>Выберите категорию</option>
                                     <option value="1">One</option>

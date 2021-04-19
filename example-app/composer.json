@@ -43,6 +43,13 @@
             "php artisan ide-helper:meta",
             "php artisan ide-helper:models -N"
         ],
+        "clean": [
+            "php artisan cache:clear",
+            "php artisan route:cache",
+            "php artisan view:clear",
+            "php artisan config:cache",
+            "php artisan optimize"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

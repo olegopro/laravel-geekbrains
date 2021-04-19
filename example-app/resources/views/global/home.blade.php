@@ -2,43 +2,43 @@
 
 @section('title', 'Главная страница')
 
-    <main role="main">
+<main role="main">
     @section('main-content')
         @switch( Request::is() )
             @case( '' )
-                <x-home-jumbotron text="Главная" />
+            <x-home-jumbotron text="Главная"/>
             @break
 
             @case( 'news' )
-                <x-home-jumbotron text="Новости" />
+            <x-home-jumbotron text="Новости"/>
             @break
 
             @case( 'about' )
-                <x-home-jumbotron text="О нас" />
+            <x-home-jumbotron text="О нас"/>
             @break
 
             @default
-                Default case...
+            Default case...
         @endswitch
 
     @endsection
 
-@section('container-news')
-    <div class="container">
-        <div class="row">
-            @foreach ($news as $newsItem)
-                @if ($loop->last)
-                    <div class="col-md-12">
-                        <h2>{{ $newsItem->title }}</h2>
-                        {{-- <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia.</p> --}}
-                        <p>{!! $newsItem->text !!}</p>
-                        <p><a class="btn btn-secondary" href='{{ route('news.show', ['id' => $newsItem->id]) }}' role="button">View details »</a></p>
-                    </div>
-                @endif
-            @endforeach
+    @section('container-news')
+        <div class="container">
+            <div class="row">
+                @foreach ($news as $newsItem)
+                    @if ($loop->last)
+                        <div class="col-md-12">
+                            <h2>{{ $newsItem->title }}</h2>
+                            <h4>Категория: {{ $newsItem->category->title }}</h4>
+                            <p>{!! $newsItem->text !!}</p>
+                            <p><a class="btn btn-secondary" href='{{ route('news.show', ['id' => $newsItem->id]) }}' role="button">View details »</a></p>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
         </div>
-    </div>
-@endsection
+    @endsection
 
 
 </main>

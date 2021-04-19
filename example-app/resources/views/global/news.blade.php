@@ -9,6 +9,7 @@
             @forelse ( $news as $newsItem )
                 <div class="col-md-4">
                     <h2>{{ $newsItem->title }}</h2>
+                    <h4>Категория: {{ $newsItem->category->title }}</h4>
                     <p>{{ $newsItem->text }}</p>
                     <p><a class="btn btn-secondary" href='{{ route('news.show', ['id' => $newsItem->id]) }}' role="button">View details »</a></p>
                 </div>

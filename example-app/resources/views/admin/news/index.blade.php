@@ -9,6 +9,12 @@
             <a href="{{ route('admin.news.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Добавить новость</a>
         </div>
 
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            @if ( session()->has('success') )
+                <div class="alert alert-success">{{ session()->get('success') }}</div>
+            @endif
+        </div>
+
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -33,15 +39,17 @@
                                 <td>{{ $newsItem->title }}</td>
                                 <td>{{ $newsItem->created_at }}</td>
                                 <td>
-
-                                    <button class="btn btn-success">
+                                    <a class="btn btn-success" href={{ route('admin.news.edit', $newsItem->id) }}>
                                         <i class="fas fa-pencil-alt"></i>
-                                    </button>
+                                    </a>
 
-                                    <button class="btn btn-danger">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-
+                                    <form class="d-inline" action="{{ route('admin.news.destroy', $newsItem->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger delete-btn">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

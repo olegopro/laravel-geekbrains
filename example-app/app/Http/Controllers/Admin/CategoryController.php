@@ -3,15 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateCategory;
+use App\Http\Requests\UpdateCategory;
 use App\Models\Category;
 use Eloquent;
+use Exception;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::where('is_visible', TRUE)->get();
+        $categories = Category::get();
 
         return view('admin.categories.index', [
             'categories' => $categories,
@@ -24,16 +27,15 @@ class CategoryController extends Controller
         return view('admin.categories.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateCategory $request)
     {
-        $data = $request->only(['title', 'description', 'is_visible']);
-        $category = Category::create($data);
+        $category = Category::create($request->validated());
         if ($category) {
             return redirect()->route('admin.categories.index')
-                             ->with('success', 'Запись успешно добавлена!');
+                             ->with('success', __('messages.admin.news.create.success'));
         }
 
-        return back()->with('error', 'Не удалось добавить запись');
+        return back()->with('error', __('messages.admin.news.create.fail'));
     }
 
     public function show($id)
@@ -47,24 +49,24 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategory $request, Category $category)
     {
-        $data = $request->only(['title', 'description', 'is_visible']);
-        $category = $category->fill($data)->save();
-        if ($category) {
+        $status = $category->fill($request->validated())->save();
+        if ($status) {
             return redirect()->route('admin.categories.index')
-                             ->with('success', 'Запись успешно изменена!');
+                             ->with('success', __('messages.admin.news.update.success'));
         }
 
-        return back()->with('error', 'Не удалось изменить запись');
+        return back()->with('error', __('messages.admin.news.update.fail'));
     }
 
-    /**
-     * @throws \Exception
-     */
     public function destroy(Category $category)
     {
-        $category->delete();
+        try {
+            $category->delete();
+        } catch (Exception $e) {
+            echo $e;
+        }
 
         return redirect()->route('admin.categories.index')
                          ->with('success', 'Запись удалена!');

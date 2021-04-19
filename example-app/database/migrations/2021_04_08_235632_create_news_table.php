@@ -15,8 +15,8 @@ class CreateNewsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')
                   ->on('categories')
-                  ->references('id')
-                  ->cascadeOnDelete();
+                  ->references('id');
+                  //->cascadeOnDelete();
 
             $table->string('title');
             $table->string('slug');

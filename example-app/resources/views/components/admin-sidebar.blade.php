@@ -72,7 +72,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
            aria-expanded="true" aria-controls="collapseNews">
             <i class="fas fa-fw fa-rss"></i>
-            <span>Управление</span>
+            <span>Новости</span>
         </a>
         <div id="collapseNews" class="collapse" aria-labelledby="headingNews" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">

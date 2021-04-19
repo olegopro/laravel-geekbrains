@@ -43,15 +43,17 @@
                                 <td>{{ $category->title }}</td>
                                 <td>{{ $category->updated_at }}</td>
                                 <td>
-                                    <a class="btn btn-success" href="{{ route('admin.categories.edit', $category['id']) }}"><i class="fas fa-pencil-alt"></i></a>
+                                    <button class="btn btn-success" onclick="location.href='{{ route('admin.categories.edit', $category['id']) }}'">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </button>
 
                                     <form class="d-inline" action="{{ route('admin.categories.destroy', $category['id']) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger delete-btn"><i class="far fa-trash-alt"></i></button>
+                                        <button type="submit" class="btn btn-danger delete-btn">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
                                     </form>
-
-
                                 </td>
                             </tr>
                         @endforeach
