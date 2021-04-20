@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\TablesController as AdminTablesController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ParserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,4 +61,6 @@ Route::get('/news/show/{id}', [NewsController::class, 'show'])
 
 Auth::routes();
 
+//RSS
+Route::get('/parsing', ParserController::class);
 

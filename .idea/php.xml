@@ -122,6 +122,9 @@
       <path value="$PROJECT_DIR$/example-app/vendor/voku/portable-ascii" />
       <path value="$PROJECT_DIR$/example-app/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/example-app/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/example-app/vendor/tightenco/collect" />
+      <path value="$PROJECT_DIR$/example-app/vendor/orchestra/parser" />
+      <path value="$PROJECT_DIR$/example-app/vendor/laravie/parser" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
