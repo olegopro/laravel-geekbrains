@@ -4,6 +4,8 @@
 <x-home-header/>
 
 
+<script src="{{ asset('js/app.js') }}" defer></script>
+
 <body class="bg-dark text-white">
     <x-home-topbar/>
     <div class="container ">

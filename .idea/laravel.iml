@@ -126,6 +126,7 @@
       <excludeFolder url="file://$MODULE_DIR$/example-app/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/example-app/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/example-app/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/example-app/vendor/laravel/ui" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
