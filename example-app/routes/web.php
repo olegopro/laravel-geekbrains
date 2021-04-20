@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\TablesController as AdminTablesController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ParserController;
+use App\Http\Controllers\SocialiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +53,13 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //ALL USERS
+Route::group(['middleware' => 'guest', 'prefix' => 'socialite'], function () {
+    Route::get('/auth/vk', [SocialiteController::class, 'init'])
+         ->name('vk.init');
+    Route::get('/auth/vk/callback', [SocialiteController::class, 'callback'])
+         ->name('vk.callback');
+});
+
 Route::get('/news', [NewsController::class, 'index'])
      ->name('news');
 

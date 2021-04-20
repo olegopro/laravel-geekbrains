@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Services\ParserService;
+use App\Services\SocialiteService;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Socialite\Facades\Socialite;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,7 +27,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind(ParserService::class, function () {
-           return new ParserService();
+            return new ParserService();
+        });
+
+        $this->app->bind(SocialiteService::class, function () {
+            return new SocialiteService();
         });
     }
 }

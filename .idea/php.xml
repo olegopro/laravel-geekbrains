@@ -125,6 +125,10 @@
       <path value="$PROJECT_DIR$/example-app/vendor/tightenco/collect" />
       <path value="$PROJECT_DIR$/example-app/vendor/orchestra/parser" />
       <path value="$PROJECT_DIR$/example-app/vendor/laravie/parser" />
+      <path value="$PROJECT_DIR$/example-app/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/example-app/vendor/socialiteproviders/manager" />
+      <path value="$PROJECT_DIR$/example-app/vendor/socialiteproviders/vkontakte" />
+      <path value="$PROJECT_DIR$/example-app/vendor/league/oauth1-client" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
