@@ -37,6 +37,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Загрузить изображение статьи</label>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="newsText">Текст новости</label>
                         <textarea type="text" class="form-control" id="newsText" rows="12" name="newsText">{{ old('newsText') }}</textarea>

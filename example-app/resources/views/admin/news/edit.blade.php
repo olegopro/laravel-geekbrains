@@ -15,7 +15,7 @@
 
         <div class="row">
             <div class="col-12 ">
-                <form method="post" action="{{ route('admin.news.update', ['news'=> $news]) }}">
+                <form method="post" action="{{ route('admin.news.update', ['news'=> $news]) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row align-items-center">
@@ -42,7 +42,16 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <img src="{{ \Storage::disk('public')->url($news->image) }}" alt="" style="width: 200px;">
                     <div class="form-group">
+                        <label for="image">Загрузить изображение статьи</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
+
+                    <div class="form-group">
+
                         <label for="text">Текст новости</label>
                         <textarea type="text" class="form-control" id="text" rows="12" name="text">{{ $news->text }}</textarea>
                     </div>

@@ -9,9 +9,10 @@ class UpdateNews extends FormRequest
     public function rules()
     {
         return [
-            'category_id'=>['required', 'numeric'],
+            'category_id' => ['required', 'numeric'],
             'title' => ['required'],
-            'text'=>['sometimes']
+            'text' => ['sometimes'],
+            'image' => ['sometimes', 'image: jpg,jpeg,png']
         ];
     }
 
