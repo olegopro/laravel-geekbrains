@@ -12,6 +12,7 @@
 <!-- Page level custom scripts -->
 @stack( 'js-charts' )
 @stack( 'js-datatables' )
+@stack( 'ckeditor' )
 
 
 
